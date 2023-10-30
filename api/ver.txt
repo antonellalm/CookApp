@@ -1,0 +1,85 @@
+El método `bulkCreate` en Sequelize es utilizado para crear múltiples registros en una sola consulta. Permite insertar una matriz de objetos en una tabla de la base de datos. A continuación, te explicaré cómo utilizar este método y te proporcionaré algunos ejemplos.
+
+Para utilizar el método `bulkCreate`, necesitarás tener un modelo definido en Sequelize que represente la tabla en la que deseas insertar los registros. Aquí tienes un ejemplo de cómo definir un modelo en Sequelize:
+
+```javascript
+const { Sequelize, DataTypes } = require('sequelize');
+
+const sequelize = new Sequelize('database', 'username', 'password', {
+  host: 'localhost',
+  dialect: 'mysql'
+});
+
+const User = sequelize.define('User', {
+  firstName: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  lastName: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true
+  }
+});
+
+// Sincronizar el modelo con la base de datos
+sequelize.sync();
+```
+
+Una vez que hayas definido el modelo, puedes utilizar el método `bulkCreate` para insertar múltiples registros en la tabla correspondiente. Aquí tienes un ejemplo de cómo utilizar el método `bulkCreate`:
+
+```javascript
+const users = [
+  { firstName: 'John', lastName: 'Doe', email: 'john.doe@example.com' },
+  { firstName: 'Jane', lastName: 'Smith', email: 'jane.smith@example.com' },
+  { firstName: 'Bob', lastName: 'Johnson', email: 'bob.johnson@example.com' }
+];
+
+User.bulkCreate(users)
+  .then(() => {
+    console.log('Registros insertados correctamente.');
+  })
+  .catch((error) => {
+    console.error('Error al insertar registros:', error);
+  });
+```
+
+En este ejemplo, `users` es una matriz de objetos que representan los registros que deseas insertar en la tabla `User`. Luego, llamamos al método `bulkCreate` en el modelo `User` y pasamos la matriz de objetos como argumento. El método `bulkCreate` devuelve una promesa que se resuelve cuando se completan todas las inserciones.
+
+Es importante tener en cuenta que el método `bulkCreate` no ejecuta las validaciones del modelo en cada objeto que se va a crear, a menos que se pase la opción `validate: true`. Esto puede afectar el rendimiento. Aquí tienes un ejemplo de cómo utilizar la opción `validate: true`:
+
+```javascript
+User.bulkCreate(users, { validate: true })
+  .then(() => {
+    console.log('Registros insertados correctamente.');
+  })
+  .catch((error) => {
+    console.error('Error al insertar registros:', error);
+  });
+```
+
+En este ejemplo, se ejecutarán las validaciones del modelo en cada objeto antes de realizar las inserciones. Si alguno de los objetos no cumple con las validaciones, se generará un error y ninguno de los registros se insertará en la base de datos.
+
+El método `bulkCreate` también acepta la opción `fields`, que es un array que define qué campos deben considerarse para la inserción, mientras que los demás campos serán ignorados. Esto puede ser útil si deseas limitar los campos que se insertan, especialmente si los valores son proporcionados directamente por el usuario. Aquí tienes un ejemplo de cómo utilizar la opción `fields`:
+
+```javascript
+User.bulkCreate(users, { fields: ['firstName', 'lastName'] })
+  .then(() => {
+    console.log('Registros insertados correctamente.');
+  })
+  .catch((error) => {
+    console.error('Error al insertar registros:', error);
+  });
+```
+
+En este ejemplo, solo se insertarán los campos `firstName` y `lastName` de cada objeto en la matriz `users`, mientras que el campo `email` será ignorado.
+
+En resumen, el método `bulkCreate` en Sequelize te permite insertar múltiples registros en una tabla de la base de datos en una sola consulta. Puedes utilizar esta función para mejorar el rendimiento al realizar inserciones masivas de datos. Asegúrate de definir correctamente el modelo en Sequelize y de tener en cuenta las opciones disponibles, como `validate` y `fields`, para adaptar el comportamiento de `bulkCreate` a tus necesidades específicas.
+
+Fuentes:
+- [Source 1](https://sequelize.org/docs/v6/other-topics/migrations/)
+- [Source 4](https://sequelize.org/docs/v6/core-concepts/model-querying-basics/)

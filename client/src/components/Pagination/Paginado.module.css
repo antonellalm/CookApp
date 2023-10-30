@@ -1,0 +1,78 @@
+.contenedor {
+  margin-top: 7rem;
+  margin-bottom: 7rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.selected {
+  color: rgb(57, 57, 58);
+  font-size: large;
+  font-weight: 200;
+  transition: 0.2s;
+  cursor: pointer;
+  border-radius: 0.1875rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border: 1px solid rgb(57, 57, 58);
+  margin-right: 0.25rem;
+  margin-left: 0.25rem;
+  height: 3rem;
+}
+
+.otherButtons {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: rgba(255, 255, 255);
+  color: rgb(57, 57, 58);
+  font-weight: bold;
+  transition: 0.2s;
+  cursor: pointer;
+  border-radius: 0.1875rem;
+  height: 2.6rem;
+  margin-right: 0.25rem;
+  margin-left: 0.25rem;
+}
+
+.otherButtons:hover {
+  border: 2p solid rgb(174, 174, 175);
+}
+
+.notSelected {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: rgba(255, 255, 255);
+  color: rgb(57, 57, 58);
+  font-weight: bold;
+  transition: 0.2s;
+  cursor: pointer;
+  border-radius: 0.1875rem;
+  height: 2.6rem;
+  margin-right: 0.25rem;
+  margin-left: 0.25rem;
+}
+.notSelected:hover {
+  box-shadow: 0px 0px 15px rgb(255, 255, 255);
+  font-size: large;
+}
+
+@media (max-width: 390px) {
+  @media (max-width: 390px) {
+    .contenedor {
+      margin-top: 5rem;
+      margin-bottom: 5rem;
+    }
+    .selected,
+    .otherButtons,
+    .notSelected {
+      font-size: medium;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      margin-right: 0.1rem;
+      margin-left: 0.1rem;
+    }
+  }
+}
+
+/* MIN DESDE // MAX HASTA */

@@ -1,0 +1,48 @@
+.searchbar {
+  display: flex;
+  flex-direction: row;
+}
+
+.input {
+  border-radius: var(--cinco);
+  border-color: var(--base);
+  border-width: 0.5px;
+  width: 34rem;
+  height: 1.8rem;
+  background-color: #fcfdfa;
+  opacity: 30;
+  border-radius: 2rem;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.btn {
+  height: 1.9rem;
+  width: 1.9rem;
+  border: none;
+  background-color: #fcfdfa;
+  border-radius: 2rem;
+  align-self: center;
+  cursor: pointer;
+  padding: 0.1875rem;
+  border: 3px solid rgba(75, 73, 73, 0.01);
+  box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.1);
+  padding: 0.25rem;
+}
+
+.icono {
+  display: flex;
+  text-align: center;
+}
+@media screen and (max-width: 1556px) {
+  .input {
+    border-width: 0.5px;
+    width: 10rem;
+    height: 1.8rem;
+    background-color: #fcfdfa;
+    opacity: 30;
+    border-radius: 2rem;
+    margin-right: 2px;
+    font-size: 14px;
+  }
+}

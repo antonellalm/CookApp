@@ -1,0 +1,27 @@
+.all {
+  background-color: blue;
+}
+.contenedor {
+  gap: 3rem;
+  margin: 4%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+  min-height: 100vh;
+}
+
+.paginado {
+  display: flex;
+  justify-content: center;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+}
+.loader img {
+  width: 400px;
+  height: 400px;
+}
