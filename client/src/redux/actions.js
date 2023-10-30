@@ -15,6 +15,8 @@ import {
 } from "../redux/actions.types";
 import axios from "axios";
 
+const API = process.env.API;
+
 export const healthScoreOrder = (score) => {
   return {
     type: HEALTH_SCORE_ORDER,
@@ -33,7 +35,7 @@ export const getDetail = (id) => {
   return async function (dispatch) {
     try {
       dispatch(setLoading(true));
-      const response = await axios.get(`http://localhost:3001/recipe/${id}`);
+      const response = await axios.get(`${API}/recipe/${id}`);
       dispatch({ type: GET_DETAIL_RECIPE, payload: response.data });
       dispatch(setLoading(false));
       console.log(response);
@@ -46,7 +48,7 @@ export const getDetail = (id) => {
 export const addRecipe = (recipe) => {
   return async function (dispatch) {
     try {
-      const response = await axios.post("http://localhost:3001/recipe", {
+      const response = await axios.post(`${API}/recipe`, {
         title: recipe.title,
         image: recipe.image,
         summary: recipe.summary,
@@ -88,7 +90,7 @@ export const getAllRecipes = () => {
   return async function (dispatch) {
     try {
       dispatch(setLoading(true));
-      const response = await axios.get("http://localhost:3001/recipe");
+      const response = await axios.get(`${API}/recipe`);
       dispatch({ type: GET_ALL_RECIPES, payload: response.data });
       dispatch(setLoading(false));
     } catch (error) {
@@ -101,9 +103,7 @@ export const getQueryRecipe = (name) => {
   return async function (dispatch) {
     try {
       dispatch(setLoading(true));
-      const response = await axios.get(
-        `http://localhost:3001/recipe?name=${name}`
-      );
+      const response = await axios.get(`${API}/recipe?name=${name}`);
       dispatch({ type: GET_ALL_RECIPES, payload: response.data });
       dispatch(setLoading(false));
     } catch (error) {
@@ -115,7 +115,7 @@ export const getQueryRecipe = (name) => {
 export const getDiets = () => {
   return async function (dispatch) {
     try {
-      const response = await axios.get("http://localhost:3001/diets");
+      const response = await axios.get(`${API}/diets`);
       dispatch({ type: GET_DIETS, payload: response.data });
     } catch (error) {
       alert("Mi base de datos no tiene las dietas solicitadas");
