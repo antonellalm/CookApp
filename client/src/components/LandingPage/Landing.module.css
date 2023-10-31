@@ -157,7 +157,7 @@ span:nth-child(18) {
   transform: scale(1.1); /* Aumenta el tamaño en un 10% cuando se hace hover */
 }
 
-@media screen and (max-width: 1477px) {
+@media only screen and (max-width: 768px) {
   .container {
     display: flex;
     flex-direction: column;
