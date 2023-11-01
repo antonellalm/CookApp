@@ -14,8 +14,8 @@ import {
   CLOSE_MODAL,
 } from "../redux/actions.types";
 import axios from "axios";
-
-import { API } from "dotenv";
+import dotenv from "dotenv";
+const API = process.env.API;
 
 export const healthScoreOrder = (score) => {
   return {
