@@ -89,6 +89,7 @@ export const openModal = (isOpen) => {
 export const getAllRecipes = () => {
   return async function (dispatch) {
     try {
+      console.log(`ESTA ES LA API: ${API}`);
       dispatch(setLoading(true));
       const response = await axios.get(`${API}/recipe`);
       dispatch({ type: GET_ALL_RECIPES, payload: response.data });
