@@ -109,7 +109,7 @@
   margin-top: 0%;
 }
 
-@media screen and (max-width: 1614px) {
+@media only screen and (max-width: 768px) {
   .contenedor {
     display: flex;
     align-items: center;

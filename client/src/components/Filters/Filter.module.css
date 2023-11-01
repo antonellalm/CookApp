@@ -23,7 +23,7 @@ select {
 .reset:hover {
   transform: scale(1.1);
 }
-@media screen and (max-width: 1556px) {
+@media only screen and (max-width: 768px) {
   select {
     padding: 0.1875rem;
     border: none;

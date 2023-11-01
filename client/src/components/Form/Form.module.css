@@ -245,7 +245,7 @@ span {
 .back3 {
   display: none;
 }
-@media screen and (max-width: 1249px) {
+@media only screen and (max-width: 768px) {
   .container {
     display: flex;
     flex-direction: column;

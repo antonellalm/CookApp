@@ -34,7 +34,7 @@
   display: flex;
   text-align: center;
 }
-@media screen and (max-width: 1556px) {
+@media only screen and (max-width: 768px) {
   .input {
     border-width: 0.5px;
     width: 10rem;
