@@ -15,7 +15,7 @@ import {
 } from "../redux/actions.types";
 import axios from "axios";
 
-const API = process.env.API;
+import { API } from "dotenv";
 
 export const healthScoreOrder = (score) => {
   return {
